@@ -8,9 +8,8 @@ import java.util.Stack;
  */
 public class LetterStack extends Actor
 {
-    Stack<Letter> stack1 = new Stack();
-    Stack<Letter> stack2 = new Stack();
-    Stack<Letter> stack3 = new Stack();
+    Stack<Letter> stack = new Stack();
+
     /**
      * Act - do whatever the LetterStack wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.

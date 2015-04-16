@@ -16,7 +16,7 @@ public class Hard extends LevelButtons
     {
         if (Greenfoot.mouseClicked(this))
         {
-            Greenfoot.setWorld(new Level());
+            Greenfoot.setWorld(new HardLevel());
         }
     }    
 }

@@ -8,6 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class LevelPicker extends World
 {
+    
+    Easy easyButton = new Easy();
+    Medium mediumButton = new Medium();
+    Hard hardButton = new Hard();
 /* if(Greenfoot.getKey() == "M" && music.isPlaying())           
         {
             music.pause();
@@ -27,6 +31,18 @@ public class LevelPicker extends World
 
     public void act() {
         
+       if(Greenfoot.mouseClicked(easyButton)) { 
+            Greenfoot.setWorld(new EasyLevel());
+            return;
+        }
+        if(Greenfoot.mouseClicked(mediumButton)) {
+            Greenfoot.setWorld(new MediumLevel());
+            return;
+        }
+        if(Greenfoot.mouseClicked(hardButton)) {             
+           Greenfoot.setWorld(new HardLevel());
+            return;
+        }
     }
 
     /**
@@ -35,11 +51,8 @@ public class LevelPicker extends World
      */
     private void prepare()
     {
-        Easy easyButton = new Easy();
         addObject(easyButton, 301, 252);
-        Medium mediumButton = new Medium();
         addObject(mediumButton, 301, 315);
-        Hard hardButton = new Hard();
         addObject(hardButton, 299, 375);
 
     }
