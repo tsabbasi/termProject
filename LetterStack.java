@@ -16,6 +16,7 @@ public class LetterStack extends Actor
      */
     public void act() 
     {
+        stack.peek().isTop = true;
      
         
     } 

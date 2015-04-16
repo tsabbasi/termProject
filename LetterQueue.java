@@ -1,8 +1,7 @@
 import greenfoot.*;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Collection;
+
 /**
  * Write a description of class LetterQueue here.
  * 

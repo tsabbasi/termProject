@@ -33,7 +33,7 @@ public class Level extends World
        addObject(l.stack3, 415, 140);
        placeLetters(l);
        addObject(l.box, 300, 550);
-       addObject(l.tube,510,460); // queue
+       addObject(l.queue,510,460); // queue
        
        
        

@@ -12,7 +12,7 @@ public class createLevel extends Actor
 {   
     
     // Queue
-    LetterQueue tube = new LetterQueue();
+    LetterQueue queue = new LetterQueue();
     //WordBox
     
     //Stacks
@@ -50,16 +50,7 @@ public class createLevel extends Actor
         }
 
 }
-
-    public void findTop(){
-        //setLocation(xCoord[0], 550);
-       
-     
-       
-        
-           
-            
-        }           
+ 
             
             
         
