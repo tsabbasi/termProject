@@ -8,15 +8,5 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Medium extends LevelButtons
 {
-    /**
-     * Act - do whatever the Medium wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act() 
-    {
-        if (Greenfoot.mouseClicked(this))
-        {
-            Greenfoot.setWorld(new MediumLevel());
-        }
-    }    
+    
 }
