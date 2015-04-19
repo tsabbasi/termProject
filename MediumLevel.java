@@ -8,13 +8,13 @@ import greenfoot.*;
  */
 public class MediumLevel extends Level
 {
-        createLevel level = new createLevel("galaxy");
+    //GreenfootSound music = new GreenfootSound("Hard Mode Edit.mp3");
     /**
      * Constructor for objects of class MediumLevel.
      * 
      */
     public MediumLevel()
     {
-         populate(level);
+         //music.play();
     }
 }

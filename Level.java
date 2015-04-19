@@ -20,13 +20,13 @@ public class Level extends World
     {  
         
         super(600, 600, 1);
-        Greenfoot.setWorld(new MainMenu());
+        Greenfoot.setWorld(new LevelPicker());
 
         
       
 
-}
-  public void populate(createLevel l){  
+    }
+    public void populate(createLevel l){  
        addObject(l, 300, 570);
        addObject(l.stack1, 103, 155);
        addObject(l.stack2, 260, 240);
@@ -36,41 +36,39 @@ public class Level extends World
        addObject(l.queue,510,460); // queue
        
        
-       
     }
 
     //This will place the letters in the world randomly and push it into the stack.
-   public void placeLetters(createLevel level){
+    public void placeLetters(createLevel level){
        int s1 = 0;
        int s2 = 0;
        int s3 = 0;
 
         
        for(int i = 0; i < level.genLetters.length;i++){
-       if(level.genLetters[i].stack == 0){
-           level.genLetters[i].x = level.x[0][s1];
-           level.genLetters[i].y = level.y[0][s1];
-           addObject(level.genLetters[i], level.x[0][s1], level.y[0][s1]);
-           level.stack1.stack.push(level.genLetters[i]);
-           s1++;
-        }else if(level.genLetters[i].stack == 1){
-              level.genLetters[i].x = level.x[1][s2];
-              level.genLetters[i].y = level.y[1][s2];
-              addObject(level.genLetters[i], level.x[1][s2], level.y[1][s2]);
-              level.stack2.stack.push(level.genLetters[i]);
-              s2++;
+            if(level.genLetters[i].stack == 0){
+               level.genLetters[i].x = level.x[0][s1];
+               level.genLetters[i].y = level.y[0][s1];
+               addObject(level.genLetters[i], level.x[0][s1], level.y[0][s1]);
+               level.stack1.stack.push(level.genLetters[i]);
+               s1++;
+            }else if(level.genLetters[i].stack == 1){
+               level.genLetters[i].x = level.x[1][s2];
+               level.genLetters[i].y = level.y[1][s2];
+               addObject(level.genLetters[i], level.x[1][s2], level.y[1][s2]);
+               level.stack2.stack.push(level.genLetters[i]);
+               s2++;
             
-        }else{
+            }else{
                level.genLetters[i].x = level.x[2][s3];
                level.genLetters[i].y = level.y[2][s3];
-              addObject(level.genLetters[i], level.x[2][s3], level.y[2][s3]);
-              level.stack3.stack.push(level.genLetters[i]);
-           s3++;
+               addObject(level.genLetters[i], level.x[2][s3], level.y[2][s3]);
+               level.stack3.stack.push(level.genLetters[i]);
+               s3++;
         
         
-    }
-}
+            }
+       }
 
-       
     }
 }
