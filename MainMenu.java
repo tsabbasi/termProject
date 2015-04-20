@@ -8,11 +8,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MainMenu extends World
 {
+    GreenfootSound music = new GreenfootSound("Alien Music.mp3");
+    MainMenuPlayButton playButton = new MainMenuPlayButton();
     /**
      * Constructor for objects of class MainMenu.
      * 
      */
-    GreenfootSound music = new GreenfootSound("Alien Music.mp3");
     public MainMenu()
     {    
         super(600, 600, 1);
@@ -24,7 +25,6 @@ public class MainMenu extends World
     }
    
     private void prepare() {
-        MainMenuPlayButton playButton = new MainMenuPlayButton();
         addObject(playButton, 299, 302);
 
     }
@@ -32,7 +32,7 @@ public class MainMenu extends World
     public void act() {  
         music.play();
 
-        if (Greenfoot.getMouseInfo() != null && Greenfoot.getMouseInfo().getButton() == 1) { 
+        if (Greenfoot.mouseClicked(playButton)) { 
             // guards against a null pointer exception and does short circuit evaluation to prevent a null
             Greenfoot.setWorld(new LevelPicker());
             

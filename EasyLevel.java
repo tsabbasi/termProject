@@ -8,15 +8,14 @@ import greenfoot.*;
  */
 public class EasyLevel extends Level
 {
-        createLevel level = new createLevel("eggs");
+    //GreenfootSound music = new GreenfootSound("New Easy Mode Edit.mp3");
     /**
      * Constructor for objects of class EasyLevel.
      * 
      */
     public EasyLevel()
     {
-         populate(level);
-        for(Letter l: level.genLetters)
-        System.out.println(l);
+        //music.play();
     }
+    
 }
