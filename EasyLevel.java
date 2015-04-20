@@ -8,14 +8,19 @@ import greenfoot.*;
  */
 public class EasyLevel extends Level
 {
+<<<<<<< HEAD
     createLevel level = new createLevel("eggs");
     Pause pauseButton = new Pause();
+=======
+    //GreenfootSound music = new GreenfootSound("New Easy Mode Edit.mp3");
+>>>>>>> 825a89674a22b57ed7e707e0d27b83306e2389f4
     /**
      * Constructor for objects of class EasyLevel.
      * 
      */
     public EasyLevel()
     {
+<<<<<<< HEAD
         populate(level);
         addObject(pauseButton, 50, 550);
     }
@@ -36,5 +41,9 @@ public class EasyLevel extends Level
             // Either 'Cancel' was clicked or no Option object was clicked on
             default: break; // do nothing
         }
+=======
+        //music.play();
+>>>>>>> 825a89674a22b57ed7e707e0d27b83306e2389f4
     }
+    
 }

@@ -8,19 +8,22 @@ import greenfoot.*;
  */
 public class Letter extends Actor
 {   //The isSelected variable is so that we can see if we'ere currently holding item and lastStack is so lets can be returned to place
-    private boolean isSelected = false;
-    public int stack = 0;
+
+    private LetterHolder container;
+    private LetterHolder original;
     private char letter = ' ';
     int x = 0;
     int y = 0;
+    int oCoord;
     int currentState = 0;
     final int inStack = 0;
     final int inQueue = 1;
     final int inBox = 2;
+    final int inSpace =3;
     boolean isTop = false;
     int[] xCoord = {200, 255, 302, 350, 395};//550 
+    boolean isSelected = false;
 
-    
     //^^To see if it's at the top of the stack
     /**
      * Act - do whatever the Letters wants to do. This method is called whenever
@@ -28,125 +31,181 @@ public class Letter extends Actor
      * 
      */
     //use lowercase letters in the parameters**THIS IS WHAT CREATES THE LETTERS AND SETS THE IMAGE*****
-    public Letter(char letter,int stack){
-        switch(letter){
-            case 'a':
-            setImage("Star-A.png");
-            break;            case 'b':
-            setImage("Star-B.png");
-            break;            case 'c':
-            setImage("Star-C.png");
-            break;            case 'd':
-            setImage("Star-D.png");
-            break;            case 'e':
-            setImage("Star-E.png");
-            break;            case 'f':
-            setImage("Star-F.png");
-            break;            case 'g':
-            setImage("Star-G.png");
-            break;            case 'h':
-            setImage("Star-H.png");
-            break;            case 'i':
-            setImage("Star-I.png");
-            break;            case 'j':
-            setImage("Star-J.png");
-            break;            case 'k':
-            setImage("Star-K.png");
-            break;            case 'l':
-            setImage("Star-L.png");
-            break;            case 'm':
-            setImage("Star-M.png");
-            break;            case 'n':
-            setImage("Star-N.png");
-            break;            case 'o':
-            setImage("Star-O.png");
-            break;            case 'p':
-            setImage("Star-P.png");
-            break;            case 'q':
-            setImage("Star-Q.png");
-            break;            case 'r':
-            setImage("Star-R.png");
-            break;            case 's':
-            setImage("Star-S.png");
-            break;            case 't':
-            setImage("Star-T.png");
-            break;            case 'u':
-            setImage("Star-U.png");
-            break;            case 'v':
-            setImage("Star-V.png");
-            break;            case 'w':
-            setImage("Star-W.png");
-            break;            case 'x':
-            setImage("Star-X.png");
-            break;            case 'y':
-            setImage("Star-Y.png");
-            break;             case 'z':
-            setImage("Star-Z.png");
-            break;
+    public Letter(char letter,Rocket container){
+        setImage("Star-"+Character.toUpperCase(letter)+".png");
 
-        }
         this.letter = letter;//This will be used to test if a sentence is correct
-        this.stack = stack;//This assigns the stack it will be in
+        this.container = container;//This assigns the Letter Holder it will be in
+        this.original = container; // This keeps track of original stack!
+        this.oCoord = this.container.xCoord;
+        this.isTop = isTop;
+        
+        //container.stack.push(this);
+
     }
 
+    public void dragAndDrop(){
+        
+        
+
+        if (!isSelected && Greenfoot.mousePressed(this) && currentState != inBox && isTop) // new letter selection
+        { // letter is currently unselected and mouse button pressed while over this letter
+            MouseInfo mi = Greenfoot.getMouseInfo();
+            x = mi.getX();
+            y = mi.getY();
+            isSelected = true; // flags the letter as selected
+            //MouseInfo mouse = Greenfoot.getMouseInfo();
+
+        }
+        if (isSelected && Greenfoot.mouseDragged(this) ) // follow the mouse
+        { // letter is currently selected and the mouse is dragging this letter
+             // gets mouse information
+             MouseInfo mi = Greenfoot.getMouseInfo();
+            setLocation(mi.getX(), mi.getY()); // sets location of letter at location of mouse
+            return; // exits current execution of this 'act' method
+        }
+           //When you land on an item
+        if(isSelected  && Greenfoot.mouseDragEnded(this) && (Letter.this.isTouching(WordBox.class) || (Letter.this.isTouching(Rocket.class) &&this.getX()==this.oCoord) || Letter.this.isTouching(Pocket.class)))
+        {
+            
+     
+        
+        if (currentState == inStack){
+            
     
+            if(Letter.this.isTouching(WordBox.class)){
+                currentState = inBox;
+            }
+            if (Letter.this.isTouching(Pocket.class))//Going to queue
+            { 
+                currentState = inQueue;
+                
+  
+
+            }
+
+            isSelected = false; // flags the letter as unselected 
+            return; 
+        }
+    
+    
+
+        
+        if (currentState == inQueue ){
+            if(Letter.this.isTouching(WordBox.class)){
+                currentState = inBox;
+            }
+            if(Letter.this.isTouching(Rocket.class))
+            { 
+                currentState = inStack;
+        
+            }
+            isSelected = false; // flags the letter as unselected 
+            return;
+        }
+       
+    }
+    // This limits where the objects can be dropped
+    // If they arent touching any types of the objects we created they will not stay.
+    if(isSelected && Greenfoot.mouseDragEnded(this) && ((Letter.this.isTouching(Rocket.class)&&this.original.xCoord!=this.getX())||!Letter.this.isTouching(WordBox.class) || !Letter.this.isTouching(Rocket.class) || !Letter.this.isTouching(Pocket.class))){//For if you don't drag to anything 
+            Letter.this.setLocation(this.container.xCoord,this.container.yCoord); //  change this so it will send it back to its containers coordinates
+            isSelected = false;
+            return;
+            //((Letter.this.isTouching(Rocket.class) && this.original.getX()!=this.getX())
+        }
+    }
+   
+    public boolean isTouchStack(){  
+        if(currentState == inStack && Letter.this.isTouching(Rocket.class) ){
+        return true;
+    }else
+    return false;
+    }
+    public boolean isTouchQueue(){
+       if(currentState == inQueue && Letter.this.isTouching(Pocket.class)){
+        return true;
+    }else{
+    return false;
+}
+    }
+    
+    public void toggleTop(){
+        this.isTop = false;
+    }
+    public LetterHolder getContainer(){
+        return this.original;
+    }
+    
+    
+    public Letter setLetterHolder(LetterHolder newContainer){
+        this.container =  newContainer;
+        return this;
+    }
+    
+    //This will allow you to drop letter on to the queue
+        public void dropOnQueue(Pocket container,Rocket rocket){
+            Letter moveLetter;
+        if (!rocket.stack.isEmpty() && rocket.stack.peek().isTouchQueue() && container.myQueue.size()<3) 
+        {
+            
+            if (container.myQueue != null)
+            {
+                rocket.stack.pop();
+                rocket.removedItem();
+                System.out.println("Letter removed from stack\n");
+                container.myQueue.add(this.setLetterHolder(container));
+                
+                this.setLocation(this.container.xCoord,this.container.yCoord);
+                container.updateX();
+                
+                System.out.println("Letter added to queue\n");
+            }
+        }
+        
+    }
+    
+    public void dropOnStack(Rocket rocket,Pocket pocket){
+        Letter moveLetter;
+        if(!pocket.myQueue.isEmpty() && pocket.myQueue.peek().isTouchStack() ){
+//  && rocket.stack == this.original.stack
+        {
+            if (rocket.stack != null)
+            {
+               
+               pocket.myQueue.remove();
+               pocket.removeItem();
+               System.out.println("Letter removed from queue\n");
+               rocket.stack.peek().toggleTop();
+               moveLetter =  rocket.stack.push(this.setLetterHolder(rocket));
+               moveLetter.setLocation(moveLetter.container.xCoord,moveLetter.container.yCoord);
+              
+               rocket.updateY();
+               System.out.println("Letter Pushed into Stack\n");
+               
+               
+       
+               //stack1.container.stack.push(queue.myQueue.remove());
+            }
+        }
+        
+        
+    }
+}  
+
+       
     
 
     //THIS IS WHERE ALL THE DRAGGING AND DROPPING TAKES PLACE
     public void act() 
     {
-        Level level = (Level) getWorld(); // gets a reference to the world
+        Level level = (Level) getWorld(); // gets a reference to the world'
+         
+        dragAndDrop();
+       
         
-        if (!isSelected && Greenfoot.mousePressed(this) && currentState != inBox && isTop) // new letter selection
-        { // letter is currently unselected and mouse button pressed while over this letter
-             isSelected = true; // flags the letter as selected
-             MouseInfo mouse = Greenfoot.getMouseInfo();
+        
 
-        
-        }
-        
-        if (isSelected && Greenfoot.mouseDragged(this) ) // follow the mouse
-        { // letter is currently selected and the mouse is dragging this letter
-            MouseInfo mi = Greenfoot.getMouseInfo(); // gets mouse information
-            setLocation(mi.getX(), mi.getY()); // sets location of letter at location of mouse
-            return; // exits current execution of this 'act' method
-        }
-        
-        if (isSelected && Greenfoot.mouseDragEnded(this) && currentState == inStack && Letter.this.isTouching(WordBox.class)){ //in Stack and touching wordbox
-            currentState = inBox;
-            
-            isSelected = false; // flags the letter as unselected 
-            return; // exits current execution of this 'act' method
-        
-        }
-        
-        if (isSelected && Greenfoot.mouseDragEnded(this) && currentState == inStack && Letter.this.isTouching(LetterQueue.class))//in stack and touching queue
-        { //Took out the setLocation for this because it needs to be updated in the level folder
-            currentState = inQueue;
-            
-            isSelected = false; // flags the letter as unselected 
-            return; // exits current execution of this 'act' method
-        
-        }
-        if (isSelected && Greenfoot.mouseDragEnded(this) && currentState == inQueue && (Letter.this.isTouching(WordBox.class))){//in inque and touching wordbox
-            isSelected = false; // flags the letter as unselected 
-            return;
-        }
-        if (isSelected && Greenfoot.mouseDragEnded(this) && currentState == inQueue && Letter.this.isTouching(LetterStack.class))//in que and touching stack
-        { //Took out the setLocation for this because it needs to be updated in the level folder
-            
-            isSelected = false; // flags the letter as unselected 
-            return; // exits current execution of this 'act' method
-        
-        }
-        
-        if(isSelected && Greenfoot.mouseDragEnded(this) && currentState == inStack){//For if you don't drag to anything 
-            Letter.this.setLocation(x,y);
-            isSelected = false;
-            return;
-        }
     
-}
-
+    }
 
 }

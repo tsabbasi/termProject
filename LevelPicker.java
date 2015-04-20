@@ -21,6 +21,7 @@ public class LevelPicker extends World
     }
 
     public void act() {
+<<<<<<< HEAD
        MouseInfo mouse = Greenfoot.getMouseInfo();
        if (mouse != null && Greenfoot.mouseClicked(easyButton)) { 
             Greenfoot.setWorld(new EasyLevel());
@@ -32,6 +33,19 @@ public class LevelPicker extends World
        }
        if (mouse != null && Greenfoot.mouseClicked(hardButton)) {             
            Greenfoot.setWorld(new HardLevel());
+=======
+        
+       if(Greenfoot.mouseClicked(easyButton)) { 
+            Greenfoot.setWorld(new EL1());
+            return;
+        }
+        if(Greenfoot.mouseClicked(mediumButton)) {
+            Greenfoot.setWorld(new ML1());
+            return;
+        }
+        if(Greenfoot.mouseClicked(hardButton)) {             
+           Greenfoot.setWorld(new HL1());
+>>>>>>> 825a89674a22b57ed7e707e0d27b83306e2389f4
             return;
        }
     }
