@@ -9,7 +9,7 @@ import java.awt.Color;
  */
 public class Level extends World
 {
-
+    // if(counter.getValue()==0) getWorld().addObject(new GameOver(), getWorld().getWidth()/2, getWorld().getHeight()/2);
     //THIS IS A TEST MAP. THESE LETTER POSITIONS SHOULD BE USED.********************************
     //First Spaceship
     /**

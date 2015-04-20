@@ -8,18 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class LevelPicker extends World
 {
-    
     Easy easyButton = new Easy();
     Medium mediumButton = new Medium();
     Hard hardButton = new Hard();
-/* if(Greenfoot.getKey() == "M" && music.isPlaying())           
-        {
-            music.pause();
-        }
-        else if(Greenfoot.getKey() == "M" && !music.isPlaying())
-        {
-            music.playLoop();
-        }*/
     /**
      * Constructor for objects of class LevelPicker.
      * 
@@ -30,19 +21,19 @@ public class LevelPicker extends World
     }
 
     public void act() {
-        
-       if(Greenfoot.mouseClicked(easyButton)) { 
+       MouseInfo mouse = Greenfoot.getMouseInfo();
+       if (mouse != null && Greenfoot.mouseClicked(easyButton)) { 
             Greenfoot.setWorld(new EasyLevel());
             return;
-        }
-        if(Greenfoot.mouseClicked(mediumButton)) {
+       }
+       if (mouse != null && Greenfoot.mouseClicked(mediumButton)) {
             Greenfoot.setWorld(new MediumLevel());
             return;
-        }
-        if(Greenfoot.mouseClicked(hardButton)) {             
+       }
+       if (mouse != null && Greenfoot.mouseClicked(hardButton)) {             
            Greenfoot.setWorld(new HardLevel());
             return;
-        }
+       }
     }
 
     /**

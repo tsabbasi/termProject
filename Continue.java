@@ -6,7 +6,7 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Continue extends LevelButtons
+public class Continue extends Buttons
 {
     /**
      * Act - do whatever the Continue wants to do. This method is called whenever

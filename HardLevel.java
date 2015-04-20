@@ -17,7 +17,7 @@ public class HardLevel extends Level
      */
     public HardLevel()
     {
-         //populate(level1);
+        populate(level1);
         //changeLevel(level2)
         //changeLevel(level3)
     }
