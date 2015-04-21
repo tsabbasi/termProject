@@ -12,7 +12,7 @@ public class EasyLevel extends Level
     createLevel level = new createLevel("eggs");
     Pause pauseButton = new Pause();
 
-    //GreenfootSound music = new GreenfootSound("New Easy Mode Edit.mp3");
+    GreenfootSound music = new GreenfootSound("EasyModeEdit.mp3");
 
     /**
      * Constructor for objects of class EasyLevel.
@@ -42,7 +42,7 @@ public class EasyLevel extends Level
             default: break; // do nothing
         }
 
-        //music.play();
+        music.play();
 
     }
     
