@@ -9,6 +9,7 @@ import greenfoot.*;
 public class EL2 extends EasyLevel
 {
     private boolean isLevelComplete = false;
+    Comet clueTwo = new Comet();
     Continue continuebutton = new Continue();
     createLevel level2 = new createLevel("bacon");
     /**
@@ -18,6 +19,7 @@ public class EL2 extends EasyLevel
     public EL2()
     {
         populate(level2);
+        addObject(clueTwo, 100, 450);
     }
     
     public void boop(){

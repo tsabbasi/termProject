@@ -9,6 +9,7 @@ import greenfoot.*;
 public class EL1 extends EasyLevel
 {
     private boolean isLevelComplete = false;
+    Galaxy clueOne = new Galaxy();
     Continue continuebutton = new Continue();
     createLevel level1 = new createLevel("eggs");
     /**
@@ -18,6 +19,7 @@ public class EL1 extends EasyLevel
     public EL1()
     {
         populate(level1);
+        addObject(clueOne, 100, 450);
     }
     
     public void boop(){

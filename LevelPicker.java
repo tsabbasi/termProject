@@ -27,30 +27,16 @@ public class LevelPicker extends World
 
        MouseInfo mouse = Greenfoot.getMouseInfo();
        if (mouse != null && Greenfoot.mouseClicked(easyButton)) { 
-            Greenfoot.setWorld(new EasyLevel());
+            Greenfoot.setWorld(new EL1());
             return;
        }
        if (mouse != null && Greenfoot.mouseClicked(mediumButton)) {
-            Greenfoot.setWorld(new MediumLevel());
+            Greenfoot.setWorld(new ML1());
             return;
        }
        if (mouse != null && Greenfoot.mouseClicked(hardButton)) {             
-           Greenfoot.setWorld(new HardLevel());
-
-        
-       if(Greenfoot.mouseClicked(easyButton)) { 
-            Greenfoot.setWorld(new EL1());
-            return;
-        }
-        if(Greenfoot.mouseClicked(mediumButton)) {
-            Greenfoot.setWorld(new ML1());
-            return;
-        }
-        if(Greenfoot.mouseClicked(hardButton)) {             
            Greenfoot.setWorld(new HL1());
-
-            return;
-        }
+       }
     }
 
     /**
@@ -58,11 +44,8 @@ public class LevelPicker extends World
      * objects and add them to the world.
      */
     
-}
-
-private void prepare()
+    private void prepare()
     {
         
-
     }
 }
