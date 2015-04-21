@@ -156,6 +156,7 @@ public class Letter extends Actor
                 container.myQueue.add(this.setLetterHolder(container));
                 
                 this.setLocation(this.container.xCoord,this.container.yCoord);
+                System.out.println("WJFOJQWFOJWQF");
                 container.updateX();
                 
                 System.out.println("Letter added to queue\n");
