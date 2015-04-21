@@ -30,7 +30,7 @@ public class MainMenu extends World
     }
     
     public void act() {  
-        music.play();
+        //music.play();
 
         if (Greenfoot.mouseClicked(playButton)) { 
             // guards against a null pointer exception and does short circuit evaluation to prevent a null

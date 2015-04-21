@@ -20,7 +20,7 @@ public class Option extends Actor
     public Option(String text, int val)
     {
         value = val; // save menu option number
-        setImage(new GreenfootImage(" " + text + " ", 36, Color.white, Color.black)); // create the button image
+        setImage(new GreenfootImage("" + text + ""));
     }
     
     /**

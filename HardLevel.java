@@ -15,12 +15,11 @@ public class HardLevel extends Level
      */
     public HardLevel()
     {
-<<<<<<< HEAD
-        populate(level1);
+
+        //populate(level1);
         //changeLevel(level2)
         //changeLevel(level3)
-=======
         //music.play();
->>>>>>> 825a89674a22b57ed7e707e0d27b83306e2389f4
+
     }
 }

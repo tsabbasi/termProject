@@ -108,7 +108,7 @@ public class Letter extends Actor
     // This limits where the objects can be dropped
     // If they arent touching any types of the objects we created they will not stay.
     if(isSelected && Greenfoot.mouseDragEnded(this) && ((Letter.this.isTouching(Rocket.class)&&this.original.xCoord!=this.getX())||!Letter.this.isTouching(WordBox.class) || !Letter.this.isTouching(Rocket.class) || !Letter.this.isTouching(Pocket.class))){//For if you don't drag to anything 
-            Letter.this.setLocation(this.container.xCoord,this.container.yCoord); //  change this so it will send it back to its containers coordinates
+            Letter.this.setLocation(this.container.xCoord+35,this.container.yCoord); //  change this so it will send it back to its containers coordinates
             isSelected = false;
             return;
             //((Letter.this.isTouching(Rocket.class) && this.original.getX()!=this.getX())
