@@ -24,7 +24,20 @@ public class LevelPicker extends World
     }
 
     public void act() {
-
+           if(Greenfoot.mouseClicked(easyButton)) { 
+            Greenfoot.setWorld(new EasyLevel());
+            return;
+        }
+        if(Greenfoot.mouseClicked(mediumButton)) {
+            Greenfoot.setWorld(new MediumLevel());
+            return;
+        }
+        if(Greenfoot.mouseClicked(hardButton)) {             
+           Greenfoot.setWorld(new HardLevel());
+            return;
+        }
+    }
+       /*
        MouseInfo mouse = Greenfoot.getMouseInfo();
        if (mouse != null && Greenfoot.mouseClicked(easyButton)) { 
             Greenfoot.setWorld(new EL1());
@@ -38,6 +51,7 @@ public class LevelPicker extends World
            Greenfoot.setWorld(new HL1());
        }
     }
+    */
 
     /**
      * Prepare the world for the start of the program. That is: create the initial

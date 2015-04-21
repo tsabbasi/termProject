@@ -22,7 +22,7 @@ public class Pocket extends LetterHolder
     
     }
     public void updateX(){
-        if(this.myQueue.size()<3){
+        if(this.myQueue.size()<=3){
         this.xCoord-=35;
     }
         

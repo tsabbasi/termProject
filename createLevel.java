@@ -1,4 +1,4 @@
-import greenfoot.*;
+ import greenfoot.*;
 
 import java.util.Random;
 
@@ -23,8 +23,7 @@ public class createLevel extends Actor
     
     //Data
     char[] alphabet = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
-    int[][] x = {{105, 105, 105, 105, 105},{263, 263, 263, 263, 263}, {415, 415, 415, 415, 415}};
-    int[][] y = {{190, 160, 130, 100, 70},{280, 250, 220, 190, 160}, {180,150,120,90, 60}};
+
     //Letters
     Letter[] genLetters = new Letter[10];
 
@@ -50,25 +49,12 @@ public class createLevel extends Actor
             if(i < word.length()){
                 
                 genLetters[i] = new Letter(word.charAt(i), rockets[index]);
-                rockets[index].stack.push(genLetters[i].setLetterHolder((LetterHolder) rockets[index]));
+                rockets[index].stack.push(genLetters[i]);
             }else{
             genLetters[i] = new Letter(alphabet[randGen.nextInt(26)], rockets[index]);
-            rockets[index].stack.push(genLetters[i].setLetterHolder((LetterHolder) rockets[index]));
+            rockets[index].stack.push(genLetters[i]);
         }
-        //This will push the letter to the stack
-        /*
-       switch(genLetters[i].stack){
-           case 0:
-           stack1.stack.push(genLetters[i]);
-           break;
-           case 1:
-           stack2.stack.push(genLetters[i]);
-           break;
-           case 2:
-           stack3.stack.push(genLetters[i]);
-           break;
-        }
-        */
+
             
         }
 
@@ -81,6 +67,16 @@ public class createLevel extends Actor
     {   
         // If something drops on any queue
         // This will add things to the actual stacks and queues.
+      if (!queue.myQueue.isEmpty()&& queue.myQueue.peek().getContainer() == stack1){  
+        queue.myQueue.peek().dropOnStack(stack1,queue);
+    }
+       if (!queue.myQueue.isEmpty() && queue.myQueue.peek().getContainer() == stack2){  
+        queue.myQueue.peek().dropOnStack(stack2,queue);
+    }
+       if (!queue.myQueue.isEmpty() && queue.myQueue.peek().getContainer() == stack3){  
+        queue.myQueue.peek().dropOnStack(stack3,queue);
+    }
+    
     if (!stack1.stack.isEmpty()){
         stack1.stack.peek().dropOnQueue(queue,stack1);
         stack1.top();
@@ -94,15 +90,7 @@ public class createLevel extends Actor
         stack3.top();
     }
     // if drops on queue
-     if (!queue.myQueue.isEmpty()){  
-    queue.myQueue.peek().dropOnStack(stack1,queue);
-}
-   if (!queue.myQueue.isEmpty()){  
-    queue.myQueue.peek().dropOnStack(stack2,queue);
-}
-   if (!queue.myQueue.isEmpty()){  
-    queue.myQueue.peek().dropOnStack(stack3,queue);
-}
+
 }
 }
     

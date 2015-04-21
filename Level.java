@@ -9,7 +9,7 @@ import java.awt.Color;
  */
 public class Level extends World
 {
-    // if(counter.getValue()==0) getWorld().addObject(new GameOver(), getWorld().getWidth()/2, getWorld().getHeight()/2);
+
     //THIS IS A TEST MAP. THESE LETTER POSITIONS SHOULD BE USED.********************************
     //First Spaceship
     /**
@@ -52,22 +52,22 @@ public class Level extends World
        if(level.genLetters[i].getContainer() == level.stack1){
            level.genLetters[i].x = 105; // This is the X coordinate for anything in stack1
            level.genLetters[i].y = level.stack1.getY();
-           addObject(level.genLetters[i], 105, level.stack1.getRocketY());
+           addObject(level.genLetters[i], 105, level.stack1.yCoord);
            level.stack1.updateY(); // The y is deceremented to add the next object on top of another.
         s1++;
            
        }else if(level.genLetters[i].getContainer() == level.stack2){
               level.genLetters[i].x = 263; //This is the X coordinate for anything in stack2
               level.genLetters[i].y = level.stack2.getY();
-              addObject(level.genLetters[i], level.x[1][s2], level.stack2.getRocketY());
+              addObject(level.genLetters[i], 263, level.stack2.yCoord);
               level.stack2.updateY();
               
              s2++;
             
         }else if (level.genLetters[i].getContainer() == level.stack3){
                level.genLetters[i].x = 415; //This is the X coordinate for anything in stack3
-               level.genLetters[i].y = level.stack3.getY(); // This is the y
-              addObject(level.genLetters[i], level.x[2][s3], level.stack3.getRocketY());
+               level.genLetters[i].y = level.stack3.yCoord; // This is the y
+              addObject(level.genLetters[i], 415, level.stack3.yCoord);
               level.stack3.updateY();
               
            s3++;
@@ -75,7 +75,9 @@ public class Level extends World
         
     }
 }
-
+level.stack1.removedItem();
+level.stack2.removedItem();
+level.stack3.removedItem();
        
     }
     

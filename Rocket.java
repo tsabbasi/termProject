@@ -12,7 +12,7 @@ public class Rocket extends LetterHolder
     Stack<Letter> stack = new Stack();
     
     public Rocket(int xCoord,int yCoord){
-       super(xCoord,yCoord);
+        super(xCoord,yCoord);
         this.stack = stack;
         this.yCoord = yCoord; // This should be the top lettter object on the stacks y coordinate.
         this.xCoord = xCoord;
@@ -64,7 +64,7 @@ public class Rocket extends LetterHolder
     public void act() 
     {
         //Level level = (Level) getWorld();
-        //top();
+        top();
         
         //System.out.println(stack.peek());
        
