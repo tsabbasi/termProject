@@ -6,7 +6,7 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Exit extends LevelButtons
+public class Exit extends Buttons
 {
     /**
      * Act - do whatever the Exit wants to do. This method is called whenever
