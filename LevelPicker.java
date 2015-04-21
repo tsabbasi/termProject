@@ -25,15 +25,15 @@ public class LevelPicker extends World
 
     public void act() {
            if(Greenfoot.mouseClicked(easyButton)) { 
-            Greenfoot.setWorld(new EasyLevel());
+            Greenfoot.setWorld(new EL1());
             return;
         }
         if(Greenfoot.mouseClicked(mediumButton)) {
-            Greenfoot.setWorld(new MediumLevel());
+            Greenfoot.setWorld(new ML1());
             return;
         }
         if(Greenfoot.mouseClicked(hardButton)) {             
-           Greenfoot.setWorld(new HardLevel());
+           Greenfoot.setWorld(new HL1());
             return;
         }
     }
