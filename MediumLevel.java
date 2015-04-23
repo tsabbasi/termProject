@@ -8,13 +8,16 @@ import greenfoot.*;
  */
 public class MediumLevel extends Level
 {
-    GreenfootSound music = new GreenfootSound("NormalModeEdit.mp3");
+    
+    VolumeDown volumedown = new VolumeDown();
+    VolumeUp volumeup = new VolumeUp();
     /**
      * Constructor for objects of class MediumLevel.
      * 
      */
     public MediumLevel()
     {
+        super(new GreenfootSound("NormalModeEdit.mp3"));
          music.play();
     }
 }

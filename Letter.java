@@ -66,14 +66,9 @@ public class Letter extends Actor
     // This limits where the objects can be dropped
     // If they arent touching any types of the objects we created they will not stay.
     if(isSelected && Greenfoot.mouseDragEnded(this) && ((Letter.this.isTouching(Rocket.class)&&this.original.xCoord!=this.getX())||!Letter.this.isTouching(WordBox.class) || !Letter.this.isTouching(Rocket.class) || !Letter.this.isTouching(Pocket.class))){//For if you don't drag to anything 
-        if (this.container instanceof Pocket  ){    
-             Letter.this.setLocation(this.container.xCoord+35,this.container.yCoord); //  change this so it will send it back to its containers coordinates
-        }
-        else{
             Letter.this.setLocation(this.container.xCoord,this.container.yCoord); //  change this so it will send it back to its containers coordinates
             isSelected = false;
             return;
-        }
             
         }
     }
@@ -106,11 +101,8 @@ public class Letter extends Actor
                 rocket.stack.pop();
                 rocket.removedItem();
                 System.out.println("Letter removed from stack\n");
-               
                 pocket.myQueue.add(setLetterHolder(pocket));
-                pocket.myQueue.peek().toggleHead();
-                
-                //toggleTop();
+                toggleTop();
                 setLocation(pocket.xCoord,pocket.yCoord);
                 pocket.updateX();
                 
@@ -125,19 +117,38 @@ public class Letter extends Actor
         if(!pocket.myQueue.isEmpty() && pocket.myQueue.peek().isTouching(Rocket.class) && pocket.myQueue.peek().intersects(original) ){
             
         
-            if (isSelected  && Greenfoot.mouseDragEnded(this) && rocket.stack != null)
+            if (isSelected  && Greenfoot.mouseDragEnded(this) && !rocket.stack.isEmpty())
             {
-               System.out.println("Landed here");
+                
                pocket.myQueue.remove();
                pocket.removeItem();
                System.out.println("Letter removed from queue\n");
-               
+               toggleHead();
                rocket.stack.peek().toggleTop();
                rocket.stack.push(setLetterHolder(rocket));
                setLocation(original.xCoord,original.yCoord);
               
                rocket.updateY();
                System.out.println("Letter Pushed into Stack\n");
+               
+               
+               
+       
+               //stack1.container.stack.push(queue.myQueue.remove());
+            }
+                        if (isSelected  && Greenfoot.mouseDragEnded(this) && rocket.stack.isEmpty())
+            {
+                
+               pocket.myQueue.remove();
+               pocket.removeItem();
+               System.out.println("Letter removed from queue\n");
+               toggleHead();
+               rocket.stack.push(setLetterHolder(rocket));
+               setLocation(original.xCoord,original.yCoord);
+              
+               rocket.updateY();
+               System.out.println("Letter Pushed into Stack\n");
+               
                
                
        

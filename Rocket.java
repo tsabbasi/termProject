@@ -30,7 +30,7 @@ public class Rocket extends LetterHolder
         if(stack.isEmpty()){
         return;
     }
-        else{
+        else if(!stack.isEmpty()){
         stack.peek().isTop = true;
     }
     }

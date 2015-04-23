@@ -8,14 +8,14 @@ import greenfoot.*;
  */
 public class HardLevel extends Level
 {
-    GreenfootSound music = new GreenfootSound("HardModeEdit.mp3");
+    
     /**
      * Constructor for objects of class HardLevel.
      * 
      */
     public HardLevel()
     {
-
+        super(new GreenfootSound("HardModeEdit.mp3"));
         //populate(level1);
         //changeLevel(level2)
         //changeLevel(level3)

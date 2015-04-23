@@ -1,7 +1,8 @@
- import greenfoot.*;
-
+import greenfoot.*;
 import java.util.Random;
-
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Arrays;
 /**
  * Write a description of class createLevel here.
  * 
@@ -12,90 +13,90 @@ public class createLevel extends Actor
 {   
     
     // Queue
-    Pocket queue = new Pocket(540,460);
-    //WordBox
+    Pocket queue = new Pocket(575,460);
+    
     
     //Stacks
     Rocket stack1 = new Rocket(105,190);
     Rocket stack2 = new Rocket(263,280);
     Rocket stack3 = new Rocket(415,180);
-    Rocket[] rockets = {stack1,stack2,stack3};
     
-    //Data
+    //List<Rocket> rockets = new ArrayList<Rocket>();
+    
+    Rocket[] rockets = {stack1,stack2,stack3}; // These are the rocketships in the game.
+    
+    // All Letters in the alphabet to use for stars.
     char[] alphabet = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
-
+    
     //Letters
-    Letter[] genLetters = new Letter[10];
-
+    Letter[] genLetters = new Letter[12]; // Maximum of 12 letters on the map.
+    
     //MISC
      Random randGen = new Random();
+     
     String word = " ";
+    //WordBox
     WordBox box = new WordBox(word);
+    
     /**
      * Act - do whatever the createLevel wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    // I changed the entire createlevel
     public createLevel(String word){
         this.word = word;
         
         
          //this will add the word.
+         List<Rocket> rockets1 = new ArrayList(Arrays.asList(stack1, stack2,stack3));
          int index;
+         int i = 0;
          // This for loop will construct letters.
-         //Why do stacks overflow.
-   for(int i = 0; i < genLetters.length;i++){
-       index = randGen.nextInt(3);
- 
-            if(i < word.length()){
+        
+         while (i <genLetters.length){
+            index = randGen.nextInt(rockets1.size()); 
+            if(rockets1.get(index).stack.size()>3){
+                rockets1.remove(rockets1.get(index)); // If the rocket is full remove it from the rockets to be added to.
+                continue;
+            }
+            else{
+                if(i<word.length() ){
+                genLetters[i] =  new Letter(word.charAt(i), rockets1.get(index));
+                rockets1.get(index).stack.push(genLetters[i]);
                 
-                genLetters[i] = new Letter(word.charAt(i), rockets[index]);
-                rockets[index].stack.push(genLetters[i]);
-            }else{
-            genLetters[i] = new Letter(alphabet[randGen.nextInt(26)], rockets[index]);
-            rockets[index].stack.push(genLetters[i]);
-        }
-
+            }
+            else {
+             genLetters[i] = new Letter(alphabet[randGen.nextInt(26)], rockets1.get(index));
+             rockets1.get(index).stack.push(genLetters[i]);
+             
+            
             
         }
-
-}
-  
-        
-
+        i++;
+    }
     
-    public void act() 
+   
+}
+  }
+        
+    
+   public void act() 
     {   
         // If something drops on any queue
         // This will add things to the actual stacks and queues.
-      if (!queue.myQueue.isEmpty()&& queue.myQueue.peek().getContainer() == stack1){  
-        queue.myQueue.peek().dropOnStack(stack1,queue);
+        for (Rocket rocket : rockets){
+            // If anything drops on the queue it will add it to the stack!
+            if (!queue.myQueue.isEmpty()&& queue.myQueue.peek().getContainer() == rocket){     
+                queue.myQueue.peek().dropOnStack(rocket,queue); 
+            }
+                // If anything drops on the stack it will add it to the queue!
+                 if (!rocket.stack.isEmpty() && queue.myQueue.size() < 3){
+                     rocket.stack.peek().dropOnQueue(queue,rocket);
+                     
     }
-       if (!queue.myQueue.isEmpty() && queue.myQueue.peek().getContainer() == stack2){  
-        queue.myQueue.peek().dropOnStack(stack2,queue);
-    }
-       if (!queue.myQueue.isEmpty() && queue.myQueue.peek().getContainer() == stack3){  
-        queue.myQueue.peek().dropOnStack(stack3,queue);
-    }
+        }
+   
     
-    if (!stack1.stack.isEmpty()){
-        stack1.stack.peek().dropOnQueue(queue,stack1);
-        stack1.top();
-    }
-    if (!stack2.stack.isEmpty()){
-        stack2.stack.peek().dropOnQueue(queue,stack2);
-        stack2.top();
-    }
-    if (!stack3.stack.isEmpty()){
-       stack3.stack.peek().dropOnQueue(queue,stack3);
-        stack3.top();
-    }
-    // if drops on queue
-
+  
 }
 }
-    
-        
-        
-        
-    
-

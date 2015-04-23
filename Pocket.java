@@ -27,6 +27,14 @@ public class Pocket extends LetterHolder
     }
         
     }
+    public void head(){
+        if(myQueue.isEmpty()){
+        return;
+    }
+        else{
+        myQueue.peek().isHead= true;
+    }
+    }
     
     public void removeItem(){
         this.xCoord+=35;
@@ -34,6 +42,6 @@ public class Pocket extends LetterHolder
     
     public void act() 
     {
-       
+       head();
     }    
 }
