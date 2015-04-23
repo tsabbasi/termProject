@@ -23,6 +23,7 @@ public class Level extends World
     public Level(GreenfootSound music)
     {  
         
+
      super(600, 600, 1);
      this.music = music;
      this.music.setVolume(50);
@@ -68,32 +69,31 @@ public class Level extends World
     }
 }
 
+
     //This will place the letters in the world randomly and push it into the stack.
-    
    public void placeLetters(createLevel level){
        int s1 = 0;
        int s2 = 0;
        int s3 = 0;
-        //genLetters contains all the letter objects that were created/
+       //genLetters contains all the letter objects that were created/
        for(int i = 0; i < level.genLetters.length;i++){
-       if(level.genLetters[i].getContainer() == level.stack1){
-           level.genLetters[i].x = 105; // This is the X coordinate for anything in stack1
-           level.genLetters[i].y = level.stack1.getY();
-           addObject(level.genLetters[i], 105, level.stack1.yCoord);
-           level.stack1.updateY(); // The y is deceremented to add the next object on top of another.
-        s1++;
+           if(level.genLetters[i].getContainer() == level.stack1){
+               level.genLetters[i].x = 105; // This is the X coordinate for anything in stack1
+               level.genLetters[i].y = level.stack1.getY();
+               addObject(level.genLetters[i], 105, level.stack1.yCoord);
+               level.stack1.updateY(); // The y is deceremented to add the next object on top of another.
+               s1++;
            
-       }else if(level.genLetters[i].getContainer() == level.stack2){
-              level.genLetters[i].x = 263; //This is the X coordinate for anything in stack2
-              level.genLetters[i].y = level.stack2.getY();
-              addObject(level.genLetters[i], 263, level.stack2.yCoord);
-              level.stack2.updateY();
-              
-             s2++;
-            
-        }else if (level.genLetters[i].getContainer() == level.stack3){
+           }else if(level.genLetters[i].getContainer() == level.stack2){
+               level.genLetters[i].x = 263; //This is the X coordinate for anything in stack2
+               level.genLetters[i].y = level.stack2.getY();
+               addObject(level.genLetters[i], 263, level.stack2.yCoord);
+               level.stack2.updateY();
+               s2++;
+           }else if (level.genLetters[i].getContainer() == level.stack3){
                level.genLetters[i].x = 415; //This is the X coordinate for anything in stack3
                level.genLetters[i].y = level.stack3.yCoord; // This is the y
+
               addObject(level.genLetters[i], 415, level.stack3.yCoord);
               level.stack3.updateY();
               
@@ -106,8 +106,9 @@ level.stack1.removedItem();
 level.stack2.removedItem();
 level.stack3.removedItem();
 
-       
     }
 
     
 }
+
+
