@@ -12,7 +12,8 @@ public class EasyLevel extends Level
     createLevel level = new createLevel("eggs");
     Pause pauseButton = new Pause();
 
-    GreenfootSound music = new GreenfootSound("EasyModeEdit.mp3");
+
+    
 
     /**
      * Constructor for objects of class EasyLevel.
@@ -20,6 +21,7 @@ public class EasyLevel extends Level
      */
     public EasyLevel()
     {
+        super(new GreenfootSound("EasyModeEdit.mp3"));
         populate(level);
         addObject(pauseButton, 50, 550);
     }
@@ -29,8 +31,8 @@ public class EasyLevel extends Level
         if (Greenfoot.mouseClicked(pauseButton))
         {
             //String[] opts = { "Do you want to quit?", "OR" ,"Go back to helping Marvan!" }; // the menu items
-            String[] opts = { "MenuButton.png","PlayButton.png" };
-            Greenfoot.setWorld(new PauseMenu(opts, this)); // change to menu world
+           
+            Greenfoot.setWorld(new PauseMenu( this)); // change to menu world
         }
         // If a menu item was clicked on, Option.getSelected should return the value of the button, else its value should be -1
         switch (Option.getSelected()) // gets the value of 'selected' in the Option class
@@ -43,6 +45,7 @@ public class EasyLevel extends Level
         }
 
         music.play();
+        Volume();
 
     }
     
