@@ -11,7 +11,7 @@ public class EL2 extends EasyLevel
     private boolean isLevelComplete = false;
     Comet clueTwo = new Comet();
     Continue continuebutton = new Continue();
-    createLevel level2 = new createLevel("bacon");
+    createLevel level2 = new createLevel("comet");
     /**
      * Constructor for objects of class EL2.
      * 

@@ -10,7 +10,7 @@ public class ML3 extends MediumLevel
 {
     private boolean isLevelComplete = false;
     Exit exitbutton = new Exit();
-    createLevel level3 = new createLevel("star");
+    createLevel level3 = new createLevel("toast");
     /**
      * Constructor for objects of class ML3.
      * 

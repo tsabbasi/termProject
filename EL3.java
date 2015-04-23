@@ -11,7 +11,7 @@ public class EL3 extends EasyLevel
     private boolean isLevelComplete = false;
     Rocketship clueThree = new Rocketship();
     Exit exitbutton = new Exit();
-    createLevel level3 = new createLevel("toast");
+    createLevel level3 = new createLevel("rocketship");
     /**
      * Constructor for objects of class EL3.
      * 

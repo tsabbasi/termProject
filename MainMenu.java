@@ -26,14 +26,16 @@ public class MainMenu extends World
    
     private void prepare() {
         addObject(playButton, 299, 302);
+        
 
     }
     
     public void act() {  
-        //music.play();
+        music.play();
 
         if (Greenfoot.mouseClicked(playButton)) { 
             // guards against a null pointer exception and does short circuit evaluation to prevent a null
+            music.stop();
             Greenfoot.setWorld(new LevelPicker());
             
         }

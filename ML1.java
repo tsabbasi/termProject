@@ -10,7 +10,7 @@ public class ML1 extends MediumLevel
 {
     private boolean isLevelComplete = false;
     Continue continuebutton = new Continue();
-    createLevel level1 = new createLevel("galaxy");
+    createLevel level1 = new createLevel("eggs");
     /**
      * Constructor for objects of class ML1.
      * 

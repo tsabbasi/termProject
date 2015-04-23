@@ -9,6 +9,10 @@ import java.awt.Color;
  */
 public class Level extends World
 {
+    VolumeDown volumedown = new VolumeDown();
+    VolumeUp volumeup = new VolumeUp();
+    GreenfootSound music;
+    int volume = 60;
 
     //THIS IS A TEST MAP. THESE LETTER POSITIONS SHOULD BE USED.********************************
     //First Spaceship
@@ -16,10 +20,13 @@ public class Level extends World
      * Constructor for objects of class level.
      * 
      */
-    public Level()
+    public Level(GreenfootSound music)
     {  
         
-        super(600, 600, 1);
+     super(600, 600, 1);
+     this.music = music;
+     this.music.setVolume(50);
+   
     Greenfoot.setWorld(new LevelPicker());
 
         
@@ -35,11 +42,31 @@ public class Level extends World
        addObject(l.stack3, 415, 140);
        addObject(l.queue,510,460);
        addObject(l.box, 300, 550);
+       addObject(volumedown, 50, 490);
+       addObject(volumeup, 50, 430);
+       
        placeLetters(l);
        
        
        
     }
+    public void Volume(){
+          
+         if (volume < 100 && Greenfoot.mouseClicked(volumeup)) { 
+            // guards against a null pointer exception and does short circuit evaluation to prevent a null
+            volume+=5;
+            music.setVolume(volume);
+            
+        
+    }
+             if (volume>0 && Greenfoot.mouseClicked(volumedown)) { 
+            // guards against a null pointer exception and does short circuit evaluation to prevent a null
+            volume-=5;
+            music.setVolume(volume);
+            
+        
+    }
+}
 
     //This will place the letters in the world randomly and push it into the stack.
     
@@ -78,7 +105,9 @@ public class Level extends World
 level.stack1.removedItem();
 level.stack2.removedItem();
 level.stack3.removedItem();
+
        
     }
+
     
 }
