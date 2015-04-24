@@ -36,7 +36,7 @@ public class createLevel extends Actor
      
     String word = " ";
     //WordBox
-    WordBox box = new WordBox(word);
+    // Work on this.
     
     /**
      * Act - do whatever the createLevel wants to do. This method is called whenever
@@ -45,7 +45,10 @@ public class createLevel extends Actor
     // I changed the entire createlevel
     public createLevel(String word){
         this.word = word;
+        WordBox box = new WordBox(word,300,55);
+       // LetterHolder.addObject(box, 300, 550);
         
+         
         
          //this will add the word.
          List<Rocket> rockets1 = new ArrayList(Arrays.asList(stack1, stack2,stack3));

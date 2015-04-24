@@ -26,14 +26,13 @@ public class Letter extends Actor
      * 
      */
     //use lowercase letters in the parameters**THIS IS WHAT CREATES THE LETTERS AND SETS THE IMAGE*****
-    public Letter(char letter,Rocket container){
+    public Letter(char letter,LetterHolder container){
         setImage("Star-"+Character.toUpperCase(letter)+".png");
 
         this.letter = letter;//This will be used to test if a sentence is correct
         this.original = container;
         this.container = container;//This assigns the Letter Holder it will be in
          // This keeps track of original stack!
-        this.oCoord = this.container.xCoord;
         this.isTop = isTop;
         setLetterHolder(container);
         
@@ -136,7 +135,7 @@ public class Letter extends Actor
        
                //stack1.container.stack.push(queue.myQueue.remove());
             }
-                        if (isSelected  && Greenfoot.mouseDragEnded(this) && rocket.stack.isEmpty())
+            if (isSelected  && Greenfoot.mouseDragEnded(this) && rocket.stack.isEmpty())
             {
                 
                pocket.myQueue.remove();
