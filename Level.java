@@ -69,6 +69,26 @@ public class Level extends World
         
     }
 }
+    public void playMusic(Level level)
+    {
+        GreenfootSound eMusic = new GreenfootSound("EasyModeEdit.mp3");
+        GreenfootSound nMusic = new GreenfootSound("NormalModeEdit.mp3");
+        GreenfootSound hMusic = new GreenfootSound("HardModeEdit.mp3");
+        
+        if(level instanceof EasyLevel)
+        {
+            eMusic.play();
+        }
+        else if(level instanceof MediumLevel)
+        {
+            nMusic.play();
+        }
+        else if(level instanceof HardLevel)
+        {
+            hMusic.play();
+        }
+        
+    }
 
 
     //This will place the letters in the world randomly and push it into the stack.
