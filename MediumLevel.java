@@ -18,6 +18,6 @@ public class MediumLevel extends Level
     public MediumLevel()
     {
         super(new GreenfootSound("NormalModeEdit.mp3"));
-         music.play();
+         //music.play();
     }
 }

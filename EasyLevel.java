@@ -44,7 +44,7 @@ public class EasyLevel extends Level
             default: break; // do nothing
         }
 
-        music.play();
+       // music.play();
         Volume();
 
     }

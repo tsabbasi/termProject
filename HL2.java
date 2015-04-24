@@ -18,6 +18,7 @@ public class HL2 extends HardLevel
     public HL2()
     {
         populate(level2);
+        playMusic(this);
     }
     
     public void boop(){

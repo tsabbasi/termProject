@@ -19,7 +19,7 @@ public class HardLevel extends Level
         //populate(level1);
         //changeLevel(level2)
         //changeLevel(level3)
-        music.play();
+        //music.play();
 
     }
 }

@@ -19,6 +19,7 @@ public class EL1 extends EasyLevel
     public EL1()
     {
         populate(level1);
+        playMusic(this);
         addObject(clueOne, 100, 450);
     }
     

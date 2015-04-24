@@ -18,6 +18,7 @@ public class ML2 extends MediumLevel
     public ML2()
     {
         populate(level2);
+        playMusic(this);
     }
     
     public void boop(){
