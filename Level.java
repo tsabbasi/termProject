@@ -43,6 +43,7 @@ public class Level extends World
        addObject(l.stack3, 415, 140);
        addObject(l.queue,510,460);
        
+        addObject(l.box, 300, 550);
        addObject(volumedown, 50, 490);
        addObject(volumeup, 50, 430);
        

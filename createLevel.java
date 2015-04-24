@@ -15,7 +15,7 @@ public class createLevel extends Actor
     // Queue
     Pocket queue = new Pocket(575,460);
     
-    
+    WordBox box;
     //Stacks
     Rocket stack1 = new Rocket(105,190);
     Rocket stack2 = new Rocket(263,280);
@@ -45,8 +45,8 @@ public class createLevel extends Actor
     // I changed the entire createlevel
     public createLevel(String word){
         this.word = word;
-        WordBox box = new WordBox(word,300,55);
-       // LetterHolder.addObject(box, 300, 550);
+        box = new WordBox(word,170,550);
+        
         
          
         
@@ -97,9 +97,14 @@ public class createLevel extends Actor
                      rocket.stack.peek().dropOnQueue(queue,rocket);
                      
     }
+    
+    if (!rocket.stack.isEmpty()){
+                     rocket.stack.peek().dropOnWordBox(queue,rocket,box);
         }
+        
    
     
   
+}
 }
 }

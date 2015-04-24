@@ -111,6 +111,64 @@ public class Letter extends Actor
         
     }
     
+      public void dropOnWordBox(Pocket pocket,Rocket rocket,WordBox word){
+          ///*
+         
+        if (!rocket.stack.isEmpty() && rocket.stack.peek().isTouching(WordBox.class) && word.currentLetter == this.letter ) 
+        {
+            
+            if (isSelected  && Greenfoot.mouseDragEnded(this) )
+            {
+                ///*
+               
+                rocket.stack.pop();
+                rocket.removedItem();
+                System.out.println("Letter removed from stack\n");
+               word.choice[word.index] = setLetterHolder(word).letter;
+               toggleTop();
+                this.setLocation(400,800);
+                word.updateX();
+                
+                System.out.println("Letter added to WordBox \n");
+            }
+         
+        }
+        
+         if(!pocket.myQueue.isEmpty() && pocket.myQueue.peek().isTouching(WordBox.class) && word.currentLetter == this.letter){
+            
+        
+            if (isSelected  && Greenfoot.mouseDragEnded(this) )
+            {
+                
+               pocket.myQueue.remove();
+               pocket.removeItem();
+               toggleHead();
+               System.out.println("Letter removed from queue\n");
+               
+               
+               word.choice[word.index] = setLetterHolder(word).letter;
+               this.setLocation(word.xCoord,word.yCoord);
+              
+               word.updateX();
+               System.out.println("Letter added to WordBox\n");
+               
+               
+               
+       
+               //stack1.container.stack.push(queue.myQueue.remove());
+            }
+            
+        
+        
+    }
+        //*/
+        }
+    
+        
+        
+        
+    
+    
     public void dropOnStack(Rocket rocket,Pocket pocket){
      
         if(!pocket.myQueue.isEmpty() && pocket.myQueue.peek().isTouching(Rocket.class) && pocket.myQueue.peek().intersects(original) ){
@@ -135,13 +193,19 @@ public class Letter extends Actor
        
                //stack1.container.stack.push(queue.myQueue.remove());
             }
-            if (isSelected  && Greenfoot.mouseDragEnded(this) && rocket.stack.isEmpty())
+            
+            
+            if(!pocket.myQueue.isEmpty() && pocket.myQueue.peek().isTouching(Rocket.class) && pocket.myQueue.peek().intersects(original) ){
+            
+        
+            if (isSelected  && Greenfoot.mouseDragEnded(this) && !rocket.stack.isEmpty())
             {
                 
                pocket.myQueue.remove();
                pocket.removeItem();
                System.out.println("Letter removed from queue\n");
                toggleHead();
+               rocket.stack.peek().toggleTop();
                rocket.stack.push(setLetterHolder(rocket));
                setLocation(original.xCoord,original.yCoord);
               
@@ -155,10 +219,9 @@ public class Letter extends Actor
             }
         
         
-        
     }
 }  
-
+}
        
     
 

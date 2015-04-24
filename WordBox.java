@@ -12,12 +12,12 @@ import java.util.ArrayList;
 public class WordBox extends LetterHolder
 {
    //This will store the letters when a letter meets the wordBox
-   ArrayList<Character> choice = new ArrayList<Character>();
+   char[] choice;
    // .get() ArrayList indexing
    
    
    int index = 0;
-   private char currentLetter;
+   public char currentLetter;
    char answer[];
    
     
@@ -30,6 +30,9 @@ public class WordBox extends LetterHolder
     
     public WordBox(String word,int xCoord, int yCoord){
      super(xCoord,yCoord);
+     this.xCoord = xCoord;
+     this.yCoord = yCoord;
+     choice = new char[word.length()];
      this.answer  = word.toCharArray(); // This creates an array of chars that are the correct answer
      this.currentLetter = answer[index]; // Current letter is the letter the word box is looking for 
      
@@ -38,10 +41,15 @@ public class WordBox extends LetterHolder
     }
     
     public void checkLetter(){
-        if(this.currentLetter == choice.get(index)){ // if current letter is equal choice's index then index is incremented
+        if(this.currentLetter == choice[index]){ // if current letter is equal choice's index then index is incremented
             
             index++;
             currentLetter = answer[index]; // currentLetter is updated
+    }
+}
+    
+    public void updateX(){
+        this.xCoord +=40;
     }
     
         
@@ -54,7 +62,7 @@ public class WordBox extends LetterHolder
      
 
 
-    }
+    
     public void act(){ 
         checkLetter();
         
