@@ -45,7 +45,7 @@ public class createLevel extends Actor
     // I changed the entire createlevel
     public createLevel(String word){
         this.word = word;
-        box = new WordBox(word,160,550);
+        box = new WordBox(word,130,550);
         
         
          
@@ -79,16 +79,18 @@ public class createLevel extends Actor
             }
     
    
-         }
-    }
+
+}
+  }
+
   
     public boolean winner(){
-      if(box.choice == box.answer){
+      if(box.choice[box.choice.length-1] == box.answer[box.choice.length-1]){
+
           return true;
         }
       return false;
-    }
-        
+    }       
     
     public void act() 
     {   
