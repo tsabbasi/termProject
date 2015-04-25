@@ -8,7 +8,6 @@ import greenfoot.*;
  */
 public class EL2 extends EasyLevel
 {
-    private boolean isLevelComplete = false;
     Comet clueTwo = new Comet();
     Continue continuebutton = new Continue();
     createLevel level2 = new createLevel("comet");
@@ -23,12 +22,8 @@ public class EL2 extends EasyLevel
         addObject(clueTwo, 100, 450);
     }
     
-    public void boop(){
-        isLevelComplete = true;
-    }
-    
     public void act(){
-        if(isLevelComplete == true){
+        if(level2.winner() == true){
             addObject(continuebutton, 301, 301);
         }
         if(Greenfoot.mouseClicked(continuebutton)){

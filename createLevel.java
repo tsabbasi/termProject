@@ -45,7 +45,7 @@ public class createLevel extends Actor
     // I changed the entire createlevel
     public createLevel(String word){
         this.word = word;
-        box = new WordBox(word,130,550);
+        box = new WordBox(word,160,550);
         
         
          
@@ -64,31 +64,33 @@ public class createLevel extends Actor
             }
             else{
                 if(i<word.length() ){
-                genLetters[i] =  new Letter(word.charAt(i), rockets1.get(index));
-                rockets1.get(index).stack.push(genLetters[i]);
+                    genLetters[i] =  new Letter(word.charAt(i), rockets1.get(index));
+                    rockets1.get(index).stack.push(genLetters[i]);
                 
-            }
-            else {
-             genLetters[i] = new Letter(alphabet[randGen.nextInt(26)], rockets1.get(index));
-             rockets1.get(index).stack.push(genLetters[i]);
+                }
+                else {
+                     genLetters[i] = new Letter(alphabet[randGen.nextInt(26)], rockets1.get(index));
+                     rockets1.get(index).stack.push(genLetters[i]);
              
             
             
-        }
-        i++;
-    }
+                }
+                i++;
+            }
     
    
-}
-  }
-  public boolean winner(){
-      if(box.choice[box.choice.length-1] == box.answer[box.choice.length-1]){
+         }
+    }
+  
+    public boolean winner(){
+      if(box.choice == box.answer){
           return true;
         }
       return false;
-    }       
+    }
+        
     
-   public void act() 
+    public void act() 
     {   
         // If something drops on any queue
         // This will add things to the actual stacks and queues.
@@ -98,18 +100,19 @@ public class createLevel extends Actor
                 queue.myQueue.peek().dropOnStack(rocket,queue); 
             }
                 // If anything drops on the stack it will add it to the queue!
-                 if (!rocket.stack.isEmpty() && queue.myQueue.size() < 3){
-                     rocket.stack.peek().dropOnQueue(queue,rocket);
+            if (!rocket.stack.isEmpty() && queue.myQueue.size() < 3){
+                rocket.stack.peek().dropOnQueue(queue,rocket);
                      
-    }
+            }
     
-    if (!rocket.stack.isEmpty()){
-                     rocket.stack.peek().dropOnWordBox(queue,rocket,box);
-        }
+            if (!rocket.stack.isEmpty()){
+                rocket.stack.peek().dropOnWordBox(queue,rocket,box);
+            }
         
    
     
   
-}
-}
+        }
+        
+    }
 }
