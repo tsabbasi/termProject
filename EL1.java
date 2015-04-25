@@ -27,13 +27,18 @@ public class EL1 extends EasyLevel
         isLevelComplete = true;
     }
     
+    
+    
     public void act(){
-        if(isLevelComplete == true){
+        pause();
+        if(level1.winner() == true){
             addObject(continuebutton, 301, 301);
         }
         if(Greenfoot.mouseClicked(continuebutton)){
             Greenfoot.setWorld(new EL2());
         }
+      
+        
     }
     
 }

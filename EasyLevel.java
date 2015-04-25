@@ -26,6 +26,29 @@ public class EasyLevel extends Level
         addObject(pauseButton, 50, 550);
     }
     
+     
+    public void pause(){
+          // Proceed to MenuWorld if mouse was clicked
+        if (Greenfoot.mouseClicked(pauseButton))
+        {
+            //String[] opts = { "Do you want to quit?", "OR" ,"Go back to helping Marvan!" }; // the menu items
+           
+            Greenfoot.setWorld(new PauseMenu( this)); // change to menu world
+        }
+        // If a menu item was clicked on, Option.getSelected should return the value of the button, else its value should be -1
+        switch (Option.getSelected()) // gets the value of 'selected' in the Option class
+        {
+            // 'Quit' was clicked
+            case 0: Greenfoot.stop(); // quit the scenario
+                    break;
+            // Either 'Cancel' was clicked or no Option object was clicked on
+            default: break; // do nothing
+        }
+
+        music.play();
+        Volume();
+        
+    }
     public void act() {
         // Proceed to MenuWorld if mouse was clicked
         if (Greenfoot.mouseClicked(pauseButton))

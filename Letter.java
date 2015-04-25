@@ -126,13 +126,14 @@ public class Letter extends Actor
                 System.out.println("Letter removed from stack\n");
                word.choice[word.index] = setLetterHolder(word).letter;
                toggleTop();
-                this.setLocation(400,800);
+                this.setLocation(word.xCoord,word.yCoord);
                 word.updateX();
                 
                 System.out.println("Letter added to WordBox \n");
             }
          
         }
+        /*
         
          if(!pocket.myQueue.isEmpty() && pocket.myQueue.peek().isTouching(WordBox.class) && word.currentLetter == this.letter){
             
@@ -161,7 +162,7 @@ public class Letter extends Actor
         
         
     }
-        //*/
+        */
         }
     
         
