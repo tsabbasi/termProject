@@ -8,7 +8,6 @@ import greenfoot.*;
  */
 public class EL3 extends EasyLevel
 {
-    private boolean isLevelComplete = false;
     Rocketship clueThree = new Rocketship();
     Exit exitbutton = new Exit();
     createLevel level3 = new createLevel("rocketship");
@@ -23,12 +22,8 @@ public class EL3 extends EasyLevel
         addObject(clueThree, 100, 450);
     }
     
-    public void boop(){
-        isLevelComplete = true;
-    }
-    
     public void act(){
-        if(isLevelComplete == true){
+        if(level3.winner() == true){
             addObject(exitbutton, 301, 301);
         }
         if (Greenfoot.mouseClicked(exitbutton)){
