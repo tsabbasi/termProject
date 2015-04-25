@@ -112,7 +112,7 @@ public class Letter extends Actor
     }
     
       public void dropOnWordBox(Pocket pocket,Rocket rocket,WordBox word){
-          ///*
+          // This allows letters to be dropped on wordBox
          
         if (!rocket.stack.isEmpty() && rocket.stack.peek().isTouching(WordBox.class) && word.currentLetter == this.letter ) 
         {
@@ -174,14 +174,16 @@ public class Letter extends Actor
         if(!pocket.myQueue.isEmpty() && pocket.myQueue.peek().isTouching(Rocket.class) && pocket.myQueue.peek().intersects(original) ){
             
         
-            if (isSelected  && Greenfoot.mouseDragEnded(this) && !rocket.stack.isEmpty())
+            if (isSelected  && Greenfoot.mouseDragEnded(this) )
             {
                 
                pocket.myQueue.remove();
                pocket.removeItem();
                System.out.println("Letter removed from queue\n");
                toggleHead();
+               if(!rocket.stack.isEmpty()){
                rocket.stack.peek().toggleTop();
+            }
                rocket.stack.push(setLetterHolder(rocket));
                setLocation(original.xCoord,original.yCoord);
               

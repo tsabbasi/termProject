@@ -41,7 +41,7 @@ public class WordBox extends LetterHolder
     }
     
     public void checkLetter(){
-        if(this.currentLetter == choice[index]){ // if current letter is equal choice's index then index is incremented
+        if(this.currentLetter == choice[index] && index+1 <choice.length ){ // if current letter is equal choice's index then index is incremented
             
             index++;
             currentLetter = answer[index]; // currentLetter is updated
@@ -49,7 +49,7 @@ public class WordBox extends LetterHolder
 }
     
     public void updateX(){
-        this.xCoord +=40;
+        this.xCoord +=45;
     }
     
         
