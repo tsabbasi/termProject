@@ -9,7 +9,7 @@ import greenfoot.*;
 public class EasyLevel extends Level
 {
 
-    createLevel level = new createLevel("eggs");
+    //createLevel level = new createLevel("eggs");
     Pause pauseButton = new Pause();
 
 
@@ -22,8 +22,8 @@ public class EasyLevel extends Level
     public EasyLevel()
     {
         super(new GreenfootSound("EasyModeEdit.mp3"));
-        populate(level);
-        addObject(pauseButton, 50, 550);
+        //populate(level);
+        addObject(pauseButton, 25, 550);
     }
     
      

@@ -13,7 +13,7 @@ public class createLevel extends Actor
 {   
     
     // Queue
-    Pocket queue = new Pocket(575,460);
+    Pocket queue = new Pocket(470,460);
     
     WordBox box;
     //Stacks
@@ -43,9 +43,9 @@ public class createLevel extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     // I changed the entire createlevel
-    public createLevel(String word){
+    public createLevel(String word,int X,int Y){
         this.word = word;
-        box = new WordBox(word,130,550);
+        box = new WordBox(word,X,Y);
         
         
          

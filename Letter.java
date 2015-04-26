@@ -28,6 +28,7 @@ public class Letter extends Actor
     //use lowercase letters in the parameters**THIS IS WHAT CREATES THE LETTERS AND SETS THE IMAGE*****
     public Letter(char letter,LetterHolder container){
         setImage("Star-"+Character.toUpperCase(letter)+".png");
+        
 
         this.letter = letter;//This will be used to test if a sentence is correct
         this.original = container;
@@ -88,6 +89,10 @@ public class Letter extends Actor
         this.container =  newContainer;
         return this;
     }
+    public void setLoc(int x, int y){
+        setLocation(x, y);
+        
+    }
     
     //This will allow you to drop letter on to the queue
         public void dropOnQueue(Pocket pocket,Rocket rocket){
@@ -103,7 +108,7 @@ public class Letter extends Actor
                 pocket.myQueue.add(setLetterHolder(pocket));
                 toggleTop();
                 setLocation(pocket.xCoord,pocket.yCoord);
-                pocket.updateX();
+                //pocket.updateX();
                 
                 System.out.println("Letter added to queue\n");
             }
@@ -179,7 +184,7 @@ public class Letter extends Actor
             {
                 
                pocket.myQueue.remove();
-               pocket.removeItem();
+              // pocket.removeItem();
                System.out.println("Letter removed from queue\n");
                toggleHead();
                if(!rocket.stack.isEmpty()){

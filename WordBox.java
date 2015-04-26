@@ -30,6 +30,7 @@ public class WordBox extends LetterHolder
     
     public WordBox(String word,int xCoord, int yCoord){
      super(xCoord,yCoord);
+     setImage(word+".png");
      this.xCoord = xCoord;
      this.yCoord = yCoord;
      choice = new char[word.length()];

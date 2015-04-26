@@ -33,8 +33,15 @@ public class Pocket extends LetterHolder
     }
         else{
         myQueue.peek().isHead= true;
+        
     }
     }
+    public void moveFirst(){
+        if(!myQueue.isEmpty() && myQueue.peek().isSelected == false){
+            myQueue.peek().setLoc(540,460);
+        }
+    }
+    
     
     public void removeItem(){
         this.xCoord+=35;
@@ -43,5 +50,6 @@ public class Pocket extends LetterHolder
     public void act() 
     {
        head();
+       moveFirst();
     }    
 }

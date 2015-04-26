@@ -10,7 +10,7 @@ public class HL2 extends HardLevel
 {
     private boolean isLevelComplete = false;
     Continue continuebutton = new Continue();
-    createLevel level2 = new createLevel("nextword");
+    createLevel level2 = new createLevel("nextword",140,550);
     /**
      * Constructor for objects of class HL2.
      * 

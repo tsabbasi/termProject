@@ -10,7 +10,7 @@ public class HL3 extends HardLevel
 {
     private boolean isLevelComplete = false;
     Exit exitbutton = new Exit();
-    createLevel level3 = new createLevel("finalword");
+    createLevel level3 = new createLevel("finalword",150,540);
     /**
      * Constructor for objects of class HL3.
      * 

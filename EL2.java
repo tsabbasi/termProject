@@ -10,7 +10,8 @@ public class EL2 extends EasyLevel
 {
     Comet clueTwo = new Comet();
     Continue continuebutton = new Continue();
-    createLevel level2 = new createLevel("comet");
+    
+    createLevel level2 = new createLevel("Comet",165,550);
     /**
      * Constructor for objects of class EL2.
      * 
