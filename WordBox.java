@@ -50,7 +50,12 @@ public class WordBox extends LetterHolder
 }
     
     public void updateX(){
+       if(answer.length > 6){
+        this.xCoord +=48;
+    }
+    else{
         this.xCoord +=45;
+    }
     }
     
         

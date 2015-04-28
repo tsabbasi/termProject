@@ -10,7 +10,7 @@ public class HL1 extends HardLevel
 {
     private boolean isLevelComplete = false;
     Continue continuebutton = new Continue();
-   createLevel level1= new createLevel("expansion",140,550);
+    createLevel level1= new createLevel("Meteor",100,500);
     /**
      * Constructor for objects of class HL1.
      * 
@@ -32,5 +32,6 @@ public class HL1 extends HardLevel
         if(Greenfoot.mouseClicked(continuebutton)){
             Greenfoot.setWorld(new HL2());
         }
+        pause();
     }
 }

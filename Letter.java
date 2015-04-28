@@ -11,7 +11,8 @@ public class Letter extends Actor
 
     private LetterHolder container;
     LetterHolder original;
-    private char letter = ' ';
+    //private char letter = ' ';
+    char letter = ' ';
     int x = 0;
     int y = 0;
     int oCoord;
@@ -28,7 +29,6 @@ public class Letter extends Actor
     //use lowercase letters in the parameters**THIS IS WHAT CREATES THE LETTERS AND SETS THE IMAGE*****
     public Letter(char letter,LetterHolder container){
         setImage("Star-"+Character.toUpperCase(letter)+".png");
-        
 
         this.letter = letter;//This will be used to test if a sentence is correct
         this.original = container;

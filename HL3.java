@@ -10,7 +10,7 @@ public class HL3 extends HardLevel
 {
     private boolean isLevelComplete = false;
     Exit exitbutton = new Exit();
-    createLevel level3 = new createLevel("finalword",150,540);
+    createLevel level3 = new createLevel("SuperNova",100,500);
     /**
      * Constructor for objects of class HL3.
      * 
@@ -32,5 +32,6 @@ public class HL3 extends HardLevel
         if (Greenfoot.mouseClicked(exitbutton)){
             Greenfoot.setWorld(new MainMenu());
         }
+        pause();
     }
 }

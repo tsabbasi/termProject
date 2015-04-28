@@ -10,7 +10,7 @@ public class ML2 extends MediumLevel
 {
     private boolean isLevelComplete = false;
     Continue continuebutton = new Continue();
-    createLevel level2 = new createLevel("bacon",150,550);
+    createLevel level2 = new createLevel("Satellite",100,500);
     /**
      * Constructor for objects of class ML2.
      * 
@@ -32,5 +32,6 @@ public class ML2 extends MediumLevel
         if(Greenfoot.mouseClicked(continuebutton)){
             Greenfoot.setWorld(new ML3());
         }
+        pause();
     }
 }

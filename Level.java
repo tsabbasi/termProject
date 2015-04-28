@@ -13,6 +13,7 @@ public class Level extends World
     VolumeUp volumeup = new VolumeUp();
     GreenfootSound music;
     int volume = 60;
+    Pause pauseButton = new Pause();
 
     //THIS IS A TEST MAP. THESE LETTER POSITIONS SHOULD BE USED.********************************
     //First Spaceship
@@ -34,6 +35,28 @@ public class Level extends World
       
 
 }
+    public void pause(){
+          // Proceed to MenuWorld if mouse was clicked
+        if (Greenfoot.mouseClicked(pauseButton))
+        {
+            //String[] opts = { "Do you want to quit?", "OR" ,"Go back to helping Marvan!" }; // the menu items
+           
+            Greenfoot.setWorld(new PauseMenu( this)); // change to menu world
+        }
+        // If a menu item was clicked on, Option.getSelected should return the value of the button, else its value should be -1
+        switch (Option.getSelected()) // gets the value of 'selected' in the Option class
+        {
+            // 'Quit' was clicked
+            case 0: Greenfoot.stop(); // quit the scenario
+                    break;
+            // Either 'Cancel' was clicked or no Option object was clicked on
+            default: break; // do nothing
+        }
+
+        music.play();
+        Volume();
+        
+    }
   public void populate(createLevel l){  
       
       // This will place the objects.
@@ -43,11 +66,13 @@ public class Level extends World
        addObject(l.stack3, 415, 140);
        addObject(l.queue,510,460);
        
-        addObject(l.box, 300, 550);
+       addObject(l.box, 300, 550);
        addObject(volumedown, 570, 100);
        addObject(volumeup, 570, 30);
        
+       
        placeLetters(l);
+       addObject(pauseButton, 30, 550);
        
        
        
@@ -69,7 +94,7 @@ public class Level extends World
         
     }
 }
-    public void playMusic(Level level)
+public void playMusic(Level level)
     {
         GreenfootSound eMusic = new GreenfootSound("EasyModeEdit.mp3");
         GreenfootSound nMusic = new GreenfootSound("NormalModeEdit.mp3");
@@ -78,14 +103,18 @@ public class Level extends World
         if(level instanceof EasyLevel)
         {
             eMusic.play();
+            this.music = eMusic;
+           
         }
         else if(level instanceof MediumLevel)
         {
             nMusic.play();
+            this.music = nMusic;
         }
         else if(level instanceof HardLevel)
         {
             hMusic.play();
+            this.music = hMusic;
         }
         
     }
@@ -115,19 +144,38 @@ public class Level extends World
 
               addObject(level.genLetters[i], 415, level.stack3.yCoord);
               level.stack3.updateY();
+            }else if(level.genLetters[i].getContainer() == level.box){
+               level.genLetters[i].x = level.box.xCoord; //This is the X coordinate for anything in stack3
+               level.genLetters[i].y = 550; // This is the y
+
+               addObject(level.genLetters[i], level.box.xCoord+45, 550);
+               level.box.updateX();
+              
+                
+            }
+                
               
           
         
         
     }
+    level.stack1.removedItem();
+    level.stack2.removedItem();
+    level.stack3.removedItem();
 }
-level.stack1.removedItem();
-level.stack2.removedItem();
-level.stack3.removedItem();
+    public void act() {
+        // Proceed to MenuWorld if mouse was clicked
+        pause();
+
+       // music.play();
+        Volume();
+
+    }
+
 
     }
 
     
-}
+
 
 

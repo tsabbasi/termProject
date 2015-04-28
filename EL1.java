@@ -11,8 +11,8 @@ public class EL1 extends EasyLevel
     private boolean isLevelComplete = false;
     Galaxy clueOne = new Galaxy();
     Continue continuebutton = new Continue();
-    createLevel level1 = new createLevel("Rocketship",45,550);
-    //createLevel level1 = new createLevel("Galaxy",140,550);
+   
+    createLevel level1 = new createLevel("galaxy",140,550);
  
     /**
      * Constructor for objects of class EL1.

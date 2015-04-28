@@ -30,9 +30,10 @@ public class createLevel extends Actor
     
     //Letters
     Letter[] genLetters = new Letter[12]; // Maximum of 12 letters on the map.
-    
+    Letter firstLetter;
     //MISC
      Random randGen = new Random();
+     
      
     String word = " ";
     //WordBox
@@ -43,9 +44,9 @@ public class createLevel extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     // I changed the entire createlevel
-    public createLevel(String word,int X,int Y){
+   public createLevel(String word,int X,int Y){
         this.word = word;
-        box = new WordBox(word,X,Y);
+         box = new WordBox(word,X,Y);
         
         
          
@@ -64,9 +65,15 @@ public class createLevel extends Actor
             }
             else{
                 if(i<word.length() ){
+                    if(i == 0){
+                        genLetters[i] = new Letter(word.charAt(i), box);
+                        box.choice[box.index] =  genLetters[i].letter;
+                        
+                    }else{
+                    
                     genLetters[i] =  new Letter(word.charAt(i), rockets1.get(index));
                     rockets1.get(index).stack.push(genLetters[i]);
-                
+                }
                 }
                 else {
                      genLetters[i] = new Letter(alphabet[randGen.nextInt(26)], rockets1.get(index));

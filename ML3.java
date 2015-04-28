@@ -10,7 +10,7 @@ public class ML3 extends MediumLevel
 {
     private boolean isLevelComplete = false;
     Exit exitbutton = new Exit();
-    createLevel level3 = new createLevel("toast",140,550);
+    createLevel level3 = new createLevel("Interstellar",100,500);
     /**
      * Constructor for objects of class ML3.
      * 
@@ -32,5 +32,6 @@ public class ML3 extends MediumLevel
         if (Greenfoot.mouseClicked(exitbutton)){
             Greenfoot.setWorld(new MainMenu());
         }
+        pause();
     }
 }
