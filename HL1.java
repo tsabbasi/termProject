@@ -8,9 +8,8 @@ import greenfoot.*;
  */
 public class HL1 extends HardLevel
 {
-    private boolean isLevelComplete = false;
     Continue continuebutton = new Continue();
-    createLevel level1= new createLevel("Meteor",100,500);
+    createLevel level1= new createLevel("Meteor",140,550);
     /**
      * Constructor for objects of class HL1.
      * 
@@ -21,12 +20,8 @@ public class HL1 extends HardLevel
         playMusic(this);
     }
     
-    public void boop(){
-        isLevelComplete = true;
-    }
-    
     public void act(){
-        if(isLevelComplete == true){
+        if(level1.winner() == true){
             addObject(continuebutton, 301, 301);
         }
         if(Greenfoot.mouseClicked(continuebutton)){

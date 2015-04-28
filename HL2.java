@@ -8,9 +8,8 @@ import greenfoot.*;
  */
 public class HL2 extends HardLevel
 {
-    private boolean isLevelComplete = false;
     Continue continuebutton = new Continue();
-    createLevel level2 = new createLevel("Spaceship",100,500);
+    createLevel level2 = new createLevel("Spaceship",43,550);
     /**
      * Constructor for objects of class HL2.
      * 
@@ -21,12 +20,8 @@ public class HL2 extends HardLevel
         playMusic(this);
     }
     
-    public void boop(){
-        isLevelComplete = true;
-    }
-    
     public void act(){
-        if(isLevelComplete == true){
+        if(level2.winner() == true){
             addObject(continuebutton, 301, 301);
         }
         if(Greenfoot.mouseClicked(continuebutton)){

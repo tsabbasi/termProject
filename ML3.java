@@ -8,9 +8,8 @@ import greenfoot.*;
  */
 public class ML3 extends MediumLevel
 {
-    private boolean isLevelComplete = false;
     Exit exitbutton = new Exit();
-    createLevel level3 = new createLevel("Interstellar",100,500);
+    createLevel level3 = new createLevel("Interstellar",-3,550);
     /**
      * Constructor for objects of class ML3.
      * 
@@ -21,12 +20,8 @@ public class ML3 extends MediumLevel
         playMusic(this);
     }
     
-    public void boop(){
-        isLevelComplete = true;
-    }
-    
     public void act(){
-        if(isLevelComplete == true){
+        if(level3.winner() == true){
             addObject(exitbutton, 301, 301);
         }
         if (Greenfoot.mouseClicked(exitbutton)){

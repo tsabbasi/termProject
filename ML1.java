@@ -8,9 +8,8 @@ import greenfoot.*;
  */
 public class ML1 extends MediumLevel
 {
-    private boolean isLevelComplete = false;
     Continue continuebutton = new Continue();
-    createLevel level1 = new createLevel("BlackHole",100,500);
+    createLevel level1 = new createLevel("BlackHole",43,550);
     /**
      * Constructor for objects of class ML1.
      * 
@@ -21,12 +20,8 @@ public class ML1 extends MediumLevel
         playMusic(this);
     }
     
-    public void boop(){
-        isLevelComplete = true;
-    }
-    
     public void act(){
-        if(isLevelComplete == true){
+        if(level1.winner() == true){
             addObject(continuebutton, 301, 301);
         }
         if(Greenfoot.mouseClicked(continuebutton)){

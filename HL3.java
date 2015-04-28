@@ -8,9 +8,8 @@ import greenfoot.*;
  */
 public class HL3 extends HardLevel
 {
-    private boolean isLevelComplete = false;
     Exit exitbutton = new Exit();
-    createLevel level3 = new createLevel("SuperNova",100,500);
+    createLevel level3 = new createLevel("SuperNova",43,550);
     /**
      * Constructor for objects of class HL3.
      * 
@@ -21,12 +20,8 @@ public class HL3 extends HardLevel
         playMusic(this);
     }
     
-    public void boop(){
-        isLevelComplete = true;
-    }
-    
     public void act(){
-        if(isLevelComplete == true){
+        if(level3.winner() == true){
             addObject(exitbutton, 301, 301);
         }
         if (Greenfoot.mouseClicked(exitbutton)){

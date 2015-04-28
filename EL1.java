@@ -8,10 +8,8 @@ import greenfoot.*;
  */
 public class EL1 extends EasyLevel
 {
-    private boolean isLevelComplete = false;
     Galaxy clueOne = new Galaxy();
     Continue continuebutton = new Continue();
-   
     createLevel level1 = new createLevel("galaxy",140,550);
  
     /**
@@ -25,12 +23,6 @@ public class EL1 extends EasyLevel
         addObject(clueOne, 100, 450);
     }
     
-    public void boop(){
-        isLevelComplete = true;
-    }
-    
-    
-    
     public void act(){
         pause();
         if(level1.winner() == true){
@@ -40,7 +32,6 @@ public class EL1 extends EasyLevel
             Greenfoot.setWorld(new EL2());
         }
       
-        
     }
     
 }
