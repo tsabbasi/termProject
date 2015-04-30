@@ -44,9 +44,9 @@ public class createLevel extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     // I changed the entire createlevel
-   public createLevel(String word,int X,int Y){
+    public createLevel(String word,int X,int Y, char difficulty){
         this.word = word;
-         box = new WordBox(word,X,Y);
+        box = new WordBox(word,X,Y);
         
         
          
@@ -58,7 +58,8 @@ public class createLevel extends Actor
          // This for loop will construct letters.
         
          while (i <genLetters.length){
-            index = randGen.nextInt(rockets1.size()); 
+            index = randGen.nextInt(rockets1.size());
+            
             if(rockets1.get(index).stack.size()>3){
                 rockets1.remove(rockets1.get(index)); // If the rocket is full remove it from the rockets to be added to.
                 continue;
@@ -66,9 +67,14 @@ public class createLevel extends Actor
             else{
                 if(i<word.length() ){
                     if(i == 0){
+                        if(difficulty == 'm'){
                         genLetters[i] = new Letter(word.charAt(i), box);
                         box.choice[box.index] =  genLetters[i].letter;
-                        
+                          }else{
+                        genLetters[i] = new Letter(word.charAt(i), rockets1.get(index));
+                        rockets1.get(index).stack.push(genLetters[i]);
+                            }
+        
                     }else{
                     
                     genLetters[i] =  new Letter(word.charAt(i), rockets1.get(index));
@@ -122,6 +128,6 @@ public class createLevel extends Actor
     
   
         }
-        
+       
     }
 }

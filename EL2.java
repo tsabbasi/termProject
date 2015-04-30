@@ -10,7 +10,7 @@ public class EL2 extends EasyLevel
 {
     Comet clueTwo = new Comet();
     Continue continuebutton = new Continue();
-    createLevel level2 = new createLevel("comet",165,550);
+    createLevel level2 = new createLevel("comet",165,550,'e');
     /**
      * Constructor for objects of class EL2.
      * 
@@ -24,7 +24,7 @@ public class EL2 extends EasyLevel
     
     public void act(){
         if(level2.winner() == true){
-            addObject(continuebutton, 301, 301);
+            addObject(continuebutton, 330, 301);
         }
         if(Greenfoot.mouseClicked(continuebutton)){
             Greenfoot.setWorld(new EL3());

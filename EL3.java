@@ -10,7 +10,7 @@ public class EL3 extends EasyLevel
 {
     Rocketship clueThree = new Rocketship();
     Exit exitbutton = new Exit();
-     createLevel level3 = new createLevel("rocketship",40,550);
+     createLevel level3 = new createLevel("rocketship",40,550,'e');
     /**
      * Constructor for objects of class EL3.
      * 

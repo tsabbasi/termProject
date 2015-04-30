@@ -9,7 +9,7 @@ import greenfoot.*;
 public class ML3 extends MediumLevel
 {
     Exit exitbutton = new Exit();
-    createLevel level3 = new createLevel("Interstellar",-3,550);
+    createLevel level3 = new createLevel("Interstellar",-3,550,'m');
     /**
      * Constructor for objects of class ML3.
      * 

@@ -9,7 +9,7 @@ import greenfoot.*;
 public class ML1 extends MediumLevel
 {
     Continue continuebutton = new Continue();
-    createLevel level1 = new createLevel("BlackHole",43,550);
+    createLevel level1 = new createLevel("BlackHole",43,550,'m');
     /**
      * Constructor for objects of class ML1.
      * 
@@ -22,7 +22,7 @@ public class ML1 extends MediumLevel
     
     public void act(){
         if(level1.winner() == true){
-            addObject(continuebutton, 301, 301);
+            addObject(continuebutton, 330, 301);
         }
         if(Greenfoot.mouseClicked(continuebutton)){
             Greenfoot.setWorld(new ML2());

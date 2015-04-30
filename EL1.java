@@ -10,7 +10,8 @@ public class EL1 extends EasyLevel
 {
     Galaxy clueOne = new Galaxy();
     Continue continuebutton = new Continue();
-    createLevel level1 = new createLevel("galaxy",140,550);
+    createLevel level1 = new createLevel("galaxy",140,550,'e');
+    Exit exit = new Exit();
  
     /**
      * Constructor for objects of class EL1.
@@ -26,7 +27,9 @@ public class EL1 extends EasyLevel
     public void act(){
         pause();
         if(level1.winner() == true){
-            addObject(continuebutton, 301, 301);
+            addObject(continuebutton, 400, 301);
+            addObject(exit,300,301);
+           
         }
         if(Greenfoot.mouseClicked(continuebutton)){
             Greenfoot.setWorld(new EL2());

@@ -9,7 +9,7 @@ import greenfoot.*;
 public class ML2 extends MediumLevel
 {
     Continue continuebutton = new Continue();
-    createLevel level2 = new createLevel("Satellite",43,550);
+    createLevel level2 = new createLevel("Satellite",43,550,'m');
     /**
      * Constructor for objects of class ML2.
      * 

@@ -9,7 +9,7 @@ import greenfoot.*;
 public class HL3 extends HardLevel
 {
     Exit exitbutton = new Exit();
-    createLevel level3 = new createLevel("SuperNova",43,550);
+    createLevel level3 = new createLevel("SuperNova",43,550,'h');
     /**
      * Constructor for objects of class HL3.
      * 

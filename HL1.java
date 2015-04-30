@@ -9,7 +9,7 @@ import greenfoot.*;
 public class HL1 extends HardLevel
 {
     Continue continuebutton = new Continue();
-    createLevel level1= new createLevel("Meteor",140,550);
+    createLevel level1= new createLevel("Meteor",140,550,'h');
     /**
      * Constructor for objects of class HL1.
      * 
