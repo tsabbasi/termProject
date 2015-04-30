@@ -14,6 +14,11 @@ public class MainMenuPlayButton extends Buttons
      */
     public void act() 
     {
-        // Add your action code here.
+        if (Greenfoot.mouseClicked(this)) { 
+            // guards against a null pointer exception and does short circuit evaluation to prevent a null
+            // music.stop();
+            Greenfoot.setWorld(new LevelPicker());
+            
+        }
     }    
 }

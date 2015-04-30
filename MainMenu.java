@@ -20,24 +20,14 @@ public class MainMenu extends World
         //GreenfootSound music = new GreenfootSound("Alien Music.mp3");
         //music.playLoop();
         prepare();
-        
         //Greenfoot.playSound("Alien Music.mp3");
     }
    
     private void prepare() {
-        addObject(playButton, 299, 302);
-        
-
+        addObject(playButton, 299, 302);     
     }
     
     public void act() {  
         music.play();
-
-        if (Greenfoot.mouseClicked(playButton)) { 
-            // guards against a null pointer exception and does short circuit evaluation to prevent a null
-            music.stop();
-            Greenfoot.setWorld(new LevelPicker());
-            
-        }
     }
 }

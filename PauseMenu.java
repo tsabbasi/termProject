@@ -8,11 +8,7 @@ import java.awt.Color;
  */
 public class PauseMenu extends World
 {
-    Level toWorld = null;
-
-    Buttons back = new BackToGame();
-    Buttons menu = new Exit();
-
+    //Level toWorld = null;
     /**
      * Constructor for objects of class PauseMenu.
      * 
@@ -20,12 +16,12 @@ public class PauseMenu extends World
     public PauseMenu(Level inWorld)
     {   
         super(600, 600, 1); 
-   
-
+        Buttons back = new BackToGame(inWorld);
+        Buttons menu = new Exit();
         addObject(back, getWidth() / 2, 250);
         addObject(menu, getWidth() / 2, 350);
         setBG(); // prepares the background image
-        toWorld = inWorld; // save world to return to
+        //toWorld = inWorld; // save world to return to
       
     }
 
@@ -38,15 +34,6 @@ public class PauseMenu extends World
     }
     
     public void act() {
-        // Returns to MainWorld if an Option object was selected
-      
-        if (Greenfoot.mouseClicked(back)){
-             Greenfoot.setWorld(toWorld);
-    }
-            if (Greenfoot.mouseClicked(menu)){
-             Greenfoot.setWorld(new MainMenu());
-    }
 
-    
-}
+    }
 }
