@@ -10,6 +10,7 @@ public class Medium extends Buttons
 {
     public void act() {
         if(Greenfoot.mouseClicked(this)) {
+            getWorld().stopped();
             Greenfoot.setWorld(new ML1());
             return;
         }

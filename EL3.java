@@ -18,18 +18,19 @@ public class EL3 extends EasyLevel
     public EL3()
     {
         populate(level3);
-        playMusic(this);
-        addObject(clueThree, 100, 450);
+        addObject(clueThree, 100, 400);
     }
     
     public void act(){
+        super.act();
         if(level3.winner() == true){
+            Greenfoot.setWorld(new Winner());
             addObject(exitbutton, 301, 301);
         }
         if (Greenfoot.mouseClicked(exitbutton)){
+            stopped();
             Greenfoot.setWorld(new MainMenu());
         }
-        pause();
     }
     
 }

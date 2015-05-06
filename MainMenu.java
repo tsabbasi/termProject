@@ -8,8 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MainMenu extends World
 {
-    GreenfootSound music = new GreenfootSound("Alien Music.mp3");
-    MainMenuPlayButton playButton = new MainMenuPlayButton();
+    // music needs to be static so that the reset button does not cause an exception
+    private static GreenfootSound music;  
+    private MainMenuPlayButton playButton;
     /**
      * Constructor for objects of class MainMenu.
      * 
@@ -17,17 +18,53 @@ public class MainMenu extends World
     public MainMenu()
     {    
         super(600, 600, 1);
-        //GreenfootSound music = new GreenfootSound("Alien Music.mp3");
-        //music.playLoop();
         prepare();
-        //Greenfoot.playSound("Alien Music.mp3");
     }
-   
+    
+    public MainMenu(boolean shouldPlayMusic)
+    {
+        super(600, 600, 1);
+        prepare();
+        if (shouldPlayMusic)
+        {
+            playMusic();
+        }
+    }
+    
+    public void playMusic()
+    {
+        music = new GreenfootSound("Alien Music.mp3");
+        music.play();
+    }
+    
+    public void stopMusic()
+    {
+        music.stop();
+    }
+    
     private void prepare() {
+        playButton = new MainMenuPlayButton();
         addObject(playButton, 299, 302);     
     }
     
+    public void addLevelPicker()
+    {
+        addObject(new Easy(), 301, 252);
+        addObject(new Medium(), 301, 315);
+        addObject(new Hard(), 299, 375);    
+    }
+    
+    public void started()
+    {
+        playMusic();
+    }
+    
+    public void stopped()
+    {
+        stopMusic();
+    }
+    
     public void act() {  
-        music.play();
+       
     }
 }

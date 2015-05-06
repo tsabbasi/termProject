@@ -20,6 +20,7 @@ public class BackToGame extends Buttons
     
     public void act() {      
         if (Greenfoot.mouseClicked(this)){
+            toWorld.playMusic();
             Greenfoot.setWorld(toWorld);
         }
     }  

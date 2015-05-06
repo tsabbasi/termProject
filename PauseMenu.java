@@ -17,9 +17,11 @@ public class PauseMenu extends World
     {   
         super(600, 600, 1); 
         Buttons back = new BackToGame(inWorld);
-        Buttons menu = new Exit();
-        addObject(back, getWidth() / 2, 250);
-        addObject(menu, getWidth() / 2, 350);
+        Buttons menu = new Menu();
+        Buttons quit = new Exit();
+        addObject(back, getWidth() / 2, 150);
+        addObject(menu, getWidth() / 2, 250);
+        addObject(quit, getWidth() / 2, 350);
         setBG(); // prepares the background image
         //toWorld = inWorld; // save world to return to
       

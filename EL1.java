@@ -20,15 +20,17 @@ public class EL1 extends EasyLevel
     public EL1()
     {
         populate(level1);
-        playMusic(this);
-        addObject(clueOne, 100, 450);
+        addObject(clueOne, 100, 400);
     }
     
     public void act(){
-        pause();
+        super.act();
         if(level1.winner() == true){
+       
             addObject(continuebutton, 400, 301);
-            addObject(exit,300,301);
+            addObject(exit,250,301);
+           
+            
            
         }
         if(Greenfoot.mouseClicked(continuebutton)){

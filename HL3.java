@@ -17,16 +17,17 @@ public class HL3 extends HardLevel
     public HL3()
     {
         populate(level3);
-        playMusic(this);
     }
     
     public void act(){
+        super.act();
         if(level3.winner() == true){
             addObject(exitbutton, 301, 301);
+            Greenfoot.setWorld(new Winner());
         }
         if (Greenfoot.mouseClicked(exitbutton)){
+            stopped();
             Greenfoot.setWorld(new MainMenu());
         }
-        pause();
     }
 }
