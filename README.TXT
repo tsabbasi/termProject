@@ -5,7 +5,7 @@ all he/she needs to know. The comments should usually include at least:
 ------------------------------------------------------------------------
 
 PROJECT TITLE: Marvan's Revenge
-PURPOSE OF PROJECT:
+PURPOSE OF PROJECT: To develop a game incorporating stacks and queues.
 VERSION or DATE:
 HOW TO START THIS PROJECT:
 AUTHORS:
